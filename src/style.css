@@ -185,6 +185,7 @@ form button:hover,
     .newsletter {
         max-width: 904px;
         display: flex;
+        flex-direction: row-reverse;
         align-items: center;
         justify-content: space-between;
         gap: 6.4rem;

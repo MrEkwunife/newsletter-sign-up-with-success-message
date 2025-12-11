@@ -16,17 +16,18 @@ export default function Form() {
     e.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const emailValue = document.querySelector("input")!.value;
+    const emailInput = document.querySelector("input");
 
-    if (!emailRegex.test(emailValue)) {
+    if (!emailRegex.test(emailInput!.value)) {
       document.querySelector("#input-error")!.textContent =
         "Valid email required";
 
       document.querySelector("input")!.className = "error";
+      emailInput!.focus();
     } else {
       const app = document.querySelector<HTMLElement>("#app");
       app!.innerHTML = "";
-      app!.appendChild(Success(emailValue));
+      app!.appendChild(Success(emailInput!.value));
     }
   });
 
